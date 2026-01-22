@@ -29,6 +29,7 @@ function updateCell(cell, index) {
     const symbol = (currentPlayer === 'PLAYER 1') ? 'X' : 'O';
     gameState[index] = symbol;
     cell.innerText = symbol;
+    cell.setAttribute('data-symbol', symbol);
     cell.style.color = (symbol === 'X') ? 'var(--accent-color)' : 'white';
 }
 
