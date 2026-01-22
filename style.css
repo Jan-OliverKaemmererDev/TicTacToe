@@ -1,0 +1,132 @@
+:root {
+    --primary-bg: #0c2834;
+    --secondary-bg: #071820;
+    --text-color: #F9F8FD;
+    --accent-color: rgba(2, 140, 220, 0.884);
+    --border-color: rgba(2, 140, 220, 0.447);
+    --font-main: 'Raleway', sans-serif;
+}
+
+body {
+    background-color: var(--secondary-bg);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+header {
+    width: 100%;
+    background-color: var(--primary-bg);
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    padding: 20px;
+}
+
+.player-display {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.player {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0.3;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.player span {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+.player.active {
+    opacity: 1;
+    color: var(--accent-color);
+    transform: scale(1.1);
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 10px;
+    border: 8px solid var(--accent-color);
+    padding: 10px;
+    border-radius: 15px;
+    background-color: var(--primary-bg);
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    background-color: var(--secondary-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.cell:hover {
+    background-color: rgba(2, 140, 220, 0.1);
+}
+
+#resetBtn {
+    margin-top: 30px;
+    padding: 10px 25px;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+#resetBtn:hover {
+    filter: brightness(1.2);
+}
+
+#statusText {
+    margin-top: 20px;
+    height: 30px;
+}
+
+.cell.winner {
+    background-color: var(--accent-color);
+    color: var(--primary-bg) !important;
+    transform: scale(1.05);
+    transition: all 0.3s ease-in-out;
+    border-color: var(--text-color);
+    box-shadow: 0 0 15px var(--accent-color);
+}
+
+.shake {
+    animation: shake-animation 0.5s ease-in-out;
+}
+
+@keyframes shake-animation {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-10px); }
+    40%, 80% { transform: translateX(10px); }
+}
