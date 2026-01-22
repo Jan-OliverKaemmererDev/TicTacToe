@@ -78,17 +78,36 @@ main {
     height: 100px;
     background-color: var(--secondary-bg);
     border: 2px solid var(--border-color);
-    border-radius: 8px;
+    border-radius: 12px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 3rem;
+    font-size: 3.5rem;
     cursor: pointer;
+    font-weight: 900;
     transition: background-color 0.2s;
+}
+
+.cell:not(:empty) {
+    border: 4px solid var(--accent-color);
+    text-shadow: 
+        -1px -1px 0 var(--primary-bg),  
+         1px -1px 0 var(--primary-bg),
+        -1px  1px 0 var(--primary-bg),
+         1px  1px 0 var(--primary-bg);
 }
 
 .cell:hover {
     background-color: rgba(2, 140, 220, 0.1);
+    transform: scale(0.95);
+}
+
+.cell[innerText="X"] {
+    color: var(--accent-color);
+}
+
+.cell[innerText="O"] {
+    color: #F9F8FD;
 }
 
 #resetBtn {
